@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.kamomileware.maven</groupId>
-		<artifactId>maven-parent</artifactId>
+		<groupId>com.kamomileware.maven.plugin</groupId>
+		<artifactId>maven-plugins-parent</artifactId>
 		<version>1</version>
 	</parent>
 
@@ -14,6 +14,17 @@
 	<name>Maven Archetype Common Configuration</name>
 	<description>Common configuration for KamomileWare Maven archetypes</description>
 
+	<scm>
+		<connection>scm:svn:http://karmaware.mine.nu/svn/kw/maven-archetypes/maven-archetype-parent/trunk</connection>
+		<developerConnection>scm:svn:http://karmaware.mine.nu/svn/kw/maven-archetypes/maven-archetype-parent/trunk</developerConnection>
+		<url>http://karmaware.mine.nu/svn/kw/maven-archetypes/maven-archetype-parent/trunk</url>
+	</scm>
+
+	<ciManagement>
+		<system></system>
+		<url></url>
+	</ciManagement>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
