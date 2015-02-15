@@ -4,28 +4,48 @@
 	<parent>
 		<groupId>com.kamomileware.maven.plugin</groupId>
 		<artifactId>maven-plugins-parent</artifactId>
-		<version>1</version>
+		<version>4-SNAPSHOT</version>
 	</parent>
-
 	<groupId>com.kamomileware.maven.archetype</groupId>
 	<artifactId>maven-archetype-parent</artifactId>
 	<packaging>pom</packaging>
-
-	<name>Maven Archetype Common Configuration</name>
+	<name>KamomileWare Maven Archetype Parent</name>
 	<description>Common configuration for KamomileWare Maven archetypes</description>
-
-	<scm>
-		<connection>scm:svn:http://karmaware.mine.nu/svn/kw/maven-archetypes/maven-archetype-parent/trunk</connection>
-		<developerConnection>scm:svn:http://karmaware.mine.nu/svn/kw/maven-archetypes/maven-archetype-parent/trunk</developerConnection>
-		<url>http://karmaware.mine.nu/svn/kw/maven-archetypes/maven-archetype-parent/trunk</url>
-	</scm>
-
-	<ciManagement>
-		<system></system>
-		<url></url>
-	</ciManagement>
-	
+  <url>https://github.com/kamomileware/${project.artifactId}</url>
+  <scm>
+    <connection>scm:git:github.com:kamomileware/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:kw.github.com:kamomileware/${project.artifactId}.git</developerConnection>
+    <url>https://github.com/kamomileware/${project.artifactId}</url>
+    <tag>develop</tag>
+  </scm>
+  <distributionManagement>
+    <site>
+      <id>kamomileware.git.server</id>
+      <url>gitsite:git@kw.github.com/kamomileware/${project.artifactId}.git</url>
+    </site>
+  </distributionManagement>
 	<build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>archetype-jar</id>
+            <phase>none</phase>
+            <inherited>false</inherited>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>help-goal</id>
+            <phase>none</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -35,16 +55,9 @@
 					<executions>
 						<execution>
 							<id>archetype-jar</id>
-							<phase>install</phase>
 							<goals>
 								<goal>jar</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id></id>
-							<phase>install</phase>
-							<goals>
-								<goal>update-local-catalog</goal>
+                <goal>update-local-catalog</goal>
 							</goals>
 						</execution>
 					</executions>
